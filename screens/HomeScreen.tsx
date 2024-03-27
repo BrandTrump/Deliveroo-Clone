@@ -16,6 +16,7 @@ import {
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
 import Categories from "@/components/Categories";
+import { spacing } from "@/themes/spacing";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -30,21 +31,20 @@ export default function HomeScreen() {
       <View
         style={{
           flexDirection: "row",
-          paddingBottom: 16,
+          paddingBottom: spacing[3],
           alignItems: "center",
-          marginHorizontal: 4,
-          paddingHorizontal: 8,
-          gap: 8,
+          marginHorizontal: spacing[4],
+          gap: spacing[2],
         }}
       >
         <Image
           source={{ uri: "https://links.papareact.com/wru" }}
           alt=""
           style={{
-            height: 28,
-            width: 28,
+            height: spacing[7],
+            width: spacing[7],
             backgroundColor: "rgb(209 213 219)",
-            padding: 4,
+            padding: spacing[4],
             borderRadius: 100,
           }}
         />
@@ -79,19 +79,18 @@ export default function HomeScreen() {
         style={{
           flexDirection: "row",
           alignItems: "center",
-          gap: 8,
-          paddingBottom: 8,
-          marginHorizontal: 4,
+          gap: spacing[2],
+          paddingBottom: spacing[2],
+          marginHorizontal: spacing[4],
         }}
       >
         <View
           style={{
             flexDirection: "row",
-            marginLeft: 8,
             flex: 1,
-            gap: 8,
+            gap: spacing[2],
             backgroundColor: "#e5e7eb",
-            padding: 12,
+            padding: spacing[3],
             alignItems: "center",
           }}
         >
@@ -105,7 +104,10 @@ export default function HomeScreen() {
         <AdjustmentsVerticalIcon color="#00CCBB" />
       </View>
 
-      <ScrollView>
+      <ScrollView
+        style={{ backgroundColor: "#f3f4f6" }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         {/* Categories  */}
         <Categories />
         {/* Featured rows */}
