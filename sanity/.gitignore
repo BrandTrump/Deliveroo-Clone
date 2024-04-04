@@ -30,3 +30,6 @@
 
 /sanity.cli.ts 
 /sanity.config.ts
+
+# local env files
+.env*.local
