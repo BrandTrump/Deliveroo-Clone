@@ -3,6 +3,8 @@ import React from "react";
 import { spacing } from "@/themes/spacing";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
+import { Dish } from "@/types/Dish";
+import { urlFor } from "@/sanity.config";
 
 type RestaurantCardProps = {
   id: number;
@@ -12,7 +14,7 @@ type RestaurantCardProps = {
   genre: string;
   address: string;
   short_description: string;
-  dishes: string[];
+  dishes: Dish[];
   long: number;
   lat: number;
 };
@@ -41,20 +43,24 @@ export default function RestaurantCard({
         },
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
-        elevation: 3,
+        borderRadius: spacing[1],
       }}
     >
       <Image
-        source={{ uri: imgUrl }}
+        source={{ uri: urlFor(imgUrl).url() }}
         alt="Restaurant"
         style={{
           height: spacing[36],
           width: spacing[64],
-          borderRadius: spacing[1],
+          borderTopRightRadius: spacing[1],
+          borderTopLeftRadius: spacing[1],
         }}
       />
       <View
-        style={{ paddingHorizontal: spacing[3], paddingBottom: spacing[4] }}
+        style={{
+          paddingHorizontal: spacing[3],
+          paddingBottom: spacing[4],
+        }}
       >
         <Text
           style={{ fontWeight: "bold", fontSize: 18, paddingTop: spacing[2] }}
@@ -82,8 +88,15 @@ export default function RestaurantCard({
           }}
         >
           <MapPinIcon size={22} color="gray" opacity={0.4} />
-          <Text style={{ color: "#6b7280", fontSize: 12 }}>
-            Nearby - {address}
+          <Text
+            style={{
+              color: "#6b7280",
+              fontSize: 12,
+              flexShrink: 1,
+              maxWidth: spacing[52],
+            }}
+          >
+            Nearby - <Text style={{}}>{address}</Text>
           </Text>
         </View>
       </View>
