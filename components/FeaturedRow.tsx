@@ -35,7 +35,7 @@ export default function FeaturedRow({
         { id }
       )
       .then((data) => setRestaurants(data?.restaurants));
-  }, []);
+  }, [id]);
   return (
     <View>
       <View
