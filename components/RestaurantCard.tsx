@@ -5,8 +5,10 @@ import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { Dish } from "@/types/Dish";
 import { urlFor } from "@/sanity.config";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { RootStackParamList } from "@/App";
 
-type RestaurantCardProps = {
+export type RestaurantCardProps = {
   id: number;
   imgUrl: string;
   title: string;
@@ -31,8 +33,23 @@ export default function RestaurantCard({
   long,
   lat,
 }: RestaurantCardProps) {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          title,
+          rating,
+          genre,
+          address,
+          short_description,
+          dishes,
+          long,
+          lat,
+        });
+      }}
       style={{
         backgroundColor: "white",
         marginRight: spacing[3],
