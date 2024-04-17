@@ -45,10 +45,10 @@ type RestaurantScreenProps = NativeStackScreenProps<
 >;
 
 export default function RestaurantScreen({ route }: RestaurantScreenProps) {
-  const params = route.params;
+  const { title } = route.params;
   return (
     <View>
-      <Text>{params.title}</Text>
+      <Text>{title}</Text>
     </View>
   );
 }
