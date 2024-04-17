@@ -27,11 +27,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="Restaurant"
-          component={RestaurantScreen}
-          initialParams={{ id: 2 }}
-        />
+        <Stack.Screen name="Restaurant" component={RestaurantScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
