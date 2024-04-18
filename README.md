@@ -33,6 +33,31 @@ function App() {
   );
 }
 ```
+
+<b>RestaurantCard.tsx</b>
+``` TS
+export default function RestaurantCard({
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Restaurant", {
+            id,
+            imgUrl,
+            title,
+            rating,
+            genre,
+            address,
+            short_description,
+            dishes,
+            long,
+            lat,
+          });
+        }}
+      </TouchableOpacity>
+  );
+}
+```
 - Type checking the restaurant screen
 - Getting the route props: https://reactnavigation.org/docs/route-prop/
 - Note: useRoute() is not type-safe
