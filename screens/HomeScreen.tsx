@@ -7,7 +7,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import SafeAreaViewAndroid from "@/components/SafeAreaViewAndroid";
 import {
   ChevronDownIcon,
@@ -20,9 +19,12 @@ import { spacing } from "@/themes/spacing";
 import FeaturedRow from "@/components/FeaturedRow";
 import client from "@/sanity.config";
 import { FeaturedCategory } from "@/types/FeaturedCategory";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/App";
 
-export default function HomeScreen() {
-  const navigation = useNavigation();
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export default function HomeScreen({ navigation }: HomeScreenProps) {
   const [featuredCategories, setFeaturedCategories] =
     useState<FeaturedCategory[]>();
 
